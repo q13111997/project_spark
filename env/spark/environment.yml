@@ -10,3 +10,4 @@ dependencies:
   - user-agents
   - pip
   - pip:
+      - psycopg2-binary
