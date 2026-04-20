@@ -1,11 +1,9 @@
 import os
 import pyspark.sql.functions as f
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, from_json, concat, lit, schema_of_json
-from pyspark.sql.types import *
 from transform.parse_json import parse_json
 from transform.parse_dim_store import parse_dim_store
-from sink.dim_store_writer import upsert_dim_store, process_batch_dim_store
+from sink.dim_store_writer import dim_store_writer
 
 import util.config as conf
 from util.logger import Log4j
@@ -42,7 +40,7 @@ def main():
     df_store = parse_dim_store(df_parsed)
        
     query = df_store.writeStream \
-        .foreachBatch(process_batch_dim_store) \
+        .foreachBatch(dim_store_writer) \
         .outputMode("update") \
         .trigger(processingTime="30 seconds") \
         .start()
