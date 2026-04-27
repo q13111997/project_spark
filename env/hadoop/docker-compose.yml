@@ -9,6 +9,7 @@ services:
       - '9870:9870'
     volumes:
       - namenode_data:/data
+      - ../../data:/app/data
       - ./conf/capacity-scheduler.xml:/usr/local/hadoop/etc/hadoop/capacity-scheduler.xml
       - ./conf/core-site.xml:/usr/local/hadoop/etc/hadoop/core-site.xml
       - ./conf/hdfs-site.xml:/usr/local/hadoop/etc/hadoop/hdfs-site.xml
@@ -54,6 +55,7 @@ services:
       - '8088:8088'
     volumes:
       - resourcemanager_data:/data
+      - ../../data:/app/data
       - ./conf/capacity-scheduler.xml:/usr/local/hadoop/etc/hadoop/capacity-scheduler.xml
       - ./conf/core-site.xml:/usr/local/hadoop/etc/hadoop/core-site.xml
       - ./conf/hdfs-site.xml:/usr/local/hadoop/etc/hadoop/hdfs-site.xml
@@ -69,6 +71,7 @@ services:
       - '18042:8042'
     volumes:
       - nodemanager1_data:/data
+      - ../../data:/app/data
       - ./conf/capacity-scheduler.xml:/usr/local/hadoop/etc/hadoop/capacity-scheduler.xml
       - ./conf/core-site.xml:/usr/local/hadoop/etc/hadoop/core-site.xml
       - ./conf/hdfs-site.xml:/usr/local/hadoop/etc/hadoop/hdfs-site.xml
@@ -84,6 +87,7 @@ services:
       - '28042:8042'
     volumes:
       - nodemanager2_data:/data
+      - ../../data:/app/data
       - ./conf/capacity-scheduler.xml:/usr/local/hadoop/etc/hadoop/capacity-scheduler.xml
       - ./conf/core-site.xml:/usr/local/hadoop/etc/hadoop/core-site.xml
       - ./conf/hdfs-site.xml:/usr/local/hadoop/etc/hadoop/hdfs-site.xml

@@ -1,4 +1,14 @@
 
+## Copy file BIN vào HDFS
+
+```shell
+docker exec -it hadoop-namenode-1 bash
+hdfs dfs -mkdir -p /app/data
+hdfs dfs -put -f /data/IP-COUNTRY-REGION-CITY.BIN /app/data/
+hdfs dfs -put -f /app/data/products_info.csv /app/data/
+hdfs dfs -ls /app/data
+```
+
 ## Chạy chương trình
 
 ```shell
